@@ -4,7 +4,7 @@ baseurl: "/my-blog"
 
 # --- 색상 설정 추가 ---
 # 1. 상단 네비게이션바 (메뉴바)
-navbar-col: "#2d3748"         # 상단바 배경색 (예: 어두운 쥐색)
+navbar-col: "#9cdcff"         # 상단바 배경색 (예: 어두운 쥐색)
 navbar-text-col: "#ffffff"    # 상단바 글자색
 
 # 2. 메인 헤더 (큰 제목 영역)
