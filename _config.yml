@@ -12,7 +12,7 @@ navbar-col: "#1a202c"         # 상단바 배경색 (예: 어두운 쥐색)
 navbar-text-col: "#ffffff"    # 상단바 글자색
 
 # 2. 메인 헤더 (큰 제목 영역)
-header-col: "#2d3748"        # 헤더 배경색 (예: 딥 블루)
+header-col: "#2d3748"        # 헤더 배경색 
 header-text-col: "#ffffff"   # 헤더 글자색
 
 # 3. 전체 페이지 본문 배경색
