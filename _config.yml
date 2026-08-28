@@ -2,10 +2,6 @@ title: Ryoo316의 학습 노트
 remote_theme: daattali/beautiful-jekyll@6.0.1
 baseurl: "/my-blog"
 
-title: Ryoo316의 학습 노트
-remote_theme: daattali/beautiful-jekyll@6.0.1
-baseurl: "/my-blog"
-
 # --- 색상 설정 추가 ---
 # 1. 상단 네비게이션바 (메뉴바)
 navbar-col: "#1a202c"         # 상단바 배경색 (예: 어두운 쥐색)
