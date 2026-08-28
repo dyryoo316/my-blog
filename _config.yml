@@ -1,3 +1,19 @@
 title: Ryoo316의 학습 노트
 remote_theme: daattali/beautiful-jekyll@6.0.1
 baseurl: "/my-blog"
+
+title: Ryoo316의 학습 노트
+remote_theme: daattali/beautiful-jekyll@6.0.1
+baseurl: "/my-blog"
+
+# --- 색상 설정 추가 ---
+# 1. 상단 네비게이션바 (메뉴바)
+navbar-col: "#1a202c"         # 상단바 배경색 (예: 어두운 쥐색)
+navbar-text-col: "#ffffff"    # 상단바 글자색
+
+# 2. 메인 헤더 (큰 제목 영역)
+header-col: "#2d3748"        # 헤더 배경색 (예: 딥 블루)
+header-text-col: "#ffffff"   # 헤더 글자색
+
+# 3. 전체 페이지 본문 배경색
+page-col: "#f7fafc"          # 전체 배경색 (예: 연한 회색/아이보리)
