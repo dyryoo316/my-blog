@@ -13,3 +13,6 @@ header-text-col: "#ffffff"   # 헤더 글자색
 
 # 3. 전체 페이지 본문 배경색
 page-col: "#f7fafc"          # 전체 배경색 (예: 연한 회색/아이보리)
+
+navbar-links:
+  글 목록: "posts/"
