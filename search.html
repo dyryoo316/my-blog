@@ -34,17 +34,64 @@ permalink: /search/
 #search-results a:hover {
   text-decoration: underline;
 }
+#search-results .search-snippet {
+  display: block;
+  font-size: 0.85rem;
+  color: #718096;
+  font-weight: normal;
+  margin-top: 2px;
+}
 </style>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/simple-jekyll-search/1.10.0/simple-jekyll-search.min.js"></script>
 <script>
-  SimpleJekyllSearch({
-    searchInput: document.getElementById('search-input'),
-    resultsContainer: document.getElementById('search-results'),
-    json: '{{ "/search.json" | relative_url }}',
-    searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
-    noResultsText: '검색 결과가 없어요.',
-    limit: 10,
-    fuzzy: false
+var searchData = [];
+
+fetch('{{ "/search.json" | relative_url }}')
+  .then(function (res) { return res.json(); })
+  .then(function (data) { searchData = data; })
+  .catch(function (err) {
+    console.error('검색 데이터를 불러오지 못했어요:', err);
+    document.getElementById('search-results').innerHTML =
+      '<li>검색 데이터를 불러오지 못했어요. search.json 파일을 확인해주세요.</li>';
   });
+
+document.getElementById('search-input').addEventListener('input', function (e) {
+  var query = e.target.value.trim().toLowerCase();
+  var resultsBox = document.getElementById('search-results');
+  resultsBox.innerHTML = '';
+
+  if (query.length === 0) return;
+
+  var matches = searchData.filter(function (post) {
+    return post.title.toLowerCase().indexOf(query) !== -1 ||
+           post.content.toLowerCase().indexOf(query) !== -1;
+  });
+
+  if (matches.length === 0) {
+    resultsBox.innerHTML = '<li>검색 결과가 없어요.</li>';
+    return;
+  }
+
+  matches.forEach(function (post) {
+    var li = document.createElement('li');
+
+    var a = document.createElement('a');
+    a.href = post.url;
+    a.textContent = post.title;
+    li.appendChild(a);
+
+    // 본문 중 검색어가 포함된 부분을 짧게 미리보기로 보여줌
+    var idx = post.content.toLowerCase().indexOf(query);
+    if (idx !== -1) {
+      var start = Math.max(0, idx - 20);
+      var snippet = post.content.substring(start, idx + 40);
+      var snippetEl = document.createElement('span');
+      snippetEl.className = 'search-snippet';
+      snippetEl.textContent = '...' + snippet + '...';
+      li.appendChild(snippetEl);
+    }
+
+    resultsBox.appendChild(li);
+  });
+});
 </script>
