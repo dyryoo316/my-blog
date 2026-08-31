@@ -6,11 +6,57 @@ permalink: /tags/
 
 {% assign tags = site.tags | sort %}
 
-{% for tag in tags %}
-  <h2>{{ tag[0] }}</h2>
-  <ul>
-    {% for post in tag[1] %}
-      <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-{% endfor %}
+<ul class="tag-list">
+  {% for tag in tags %}
+    <li class="tag-item">
+      <details>
+        <summary>{{ tag[0] }} <span class="tag-count">({{ tag[1].size }})</span></summary>
+        <ul class="tag-posts">
+          {% for post in tag[1] %}
+            <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </details>
+    </li>
+  {% endfor %}
+</ul>
+
+<style>
+.tag-list {
+  list-style: none;
+  padding: 0;
+  max-width: 500px;
+}
+.tag-item {
+  margin-bottom: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px 16px;
+}
+.tag-item summary {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.05rem;
+  outline: none;
+}
+.tag-count {
+  color: #a0aec0;
+  font-weight: normal;
+  font-size: 0.9rem;
+}
+.tag-posts {
+  list-style: none;
+  padding-left: 8px;
+  margin: 10px 0 0;
+}
+.tag-posts li {
+  margin-bottom: 6px;
+}
+.tag-posts a {
+  color: #2d3748;
+  text-decoration: none;
+}
+.tag-posts a:hover {
+  text-decoration: underline;
+}
+</style>
