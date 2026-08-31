@@ -2,8 +2,7 @@
 layout: post
 title: "커밋, 푸시, 풀, PR의 역할 정리하기"
 date: 2026-08-31 00:00:00 +0900
-categories: [Git]
-tags: [git, github, commit, pull-request]
+tags: [1개월]
 ---
 
 ## 들어가며 (Situation)
