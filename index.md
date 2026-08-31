@@ -92,7 +92,7 @@ list_title: 지금까지 쓴 글
   var startDate = new Date(2026, 7, 26);  // 2026-08-26
   var endDate   = new Date(2027, 1, 16);  // 2027-02-16
 
-  // ── 공휴일 목록 (필요할 때 이 배열만 수정하면 됨) ──
+  // ── 공휴일 목록 (근무일 계산용, 확인 후 필요시 수정) ──
   var holidays = [
     "2026-09-24", "2026-09-25", "2026-09-26", // 추석 연휴
     "2026-10-03", // 개천절
@@ -115,7 +115,7 @@ list_title: 지금까지 쓴 글
     return true;
   }
 
-  // start ~ end(포함하지 않음) 사이 평일 수 세기
+  // from ~ to(포함하지 않음) 사이 근무일 수 세기
   function countWorkdays(from, to) {
     var count = 0;
     var cur = new Date(from);
@@ -131,20 +131,25 @@ list_title: 지금까지 쓴 글
   var today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  var totalWorkdays = countWorkdays(startDate, endDate); // 전체 평일 수 (분모)
+  var oneDay = 1000 * 60 * 60 * 24;
 
-  // 오늘이 포함된 날까지의 경과 평일 수 (분자)
+  // ── 1. "N일차" 표시용: 근무일(평일) 수 ──
   var todayForCount = new Date(today);
   todayForCount.setDate(todayForCount.getDate() + 1); // to는 미포함이라 +1
-  var doneWorkdays = countWorkdays(startDate, todayForCount);
-  if (doneWorkdays > totalWorkdays) doneWorkdays = totalWorkdays;
-  if (doneWorkdays < 0) doneWorkdays = 0;
+  var workdaysDone = countWorkdays(startDate, todayForCount);
+  if (workdaysDone < 1) workdaysDone = 1;
 
-  document.getElementById('bootcamp-day').textContent = '부트캠프 ' + doneWorkdays + '일차';
+  document.getElementById('bootcamp-day').textContent = '부트캠프 ' + workdaysDone + '일차';
 
-  var percent = totalWorkdays > 0 ? Math.round((doneWorkdays / totalWorkdays) * 100) : 0;
+  // ── 2. 퍼센트 바용: 그냥 통째로 센 달력 일수 ──
+  var totalDays = Math.round((endDate - startDate) / oneDay) + 1; // 174
+  var dayCount = Math.round((today - startDate) / oneDay) + 1;
+  if (dayCount < 1) dayCount = 1;
+  if (dayCount > totalDays) dayCount = totalDays;
+
+  var percent = Math.round((dayCount / totalDays) * 100);
   document.getElementById('bootcamp-progress-bar').style.width = percent + '%';
   document.getElementById('bootcamp-progress-label').textContent =
-    doneWorkdays + ' / ' + totalWorkdays + '일 (' + percent + '%)';
+    dayCount + ' / ' + totalDays + '일 (' + percent + '%)';
 })();
 </script>
