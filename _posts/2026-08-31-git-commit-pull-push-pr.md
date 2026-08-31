@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "커밋, 푸시, 풀, PR의 역할 정리하기"
-date: 2026-08-31 00:00:00 +0900
+title: "COMMIT, PUSH, PULL, PR의 역할 정리하기"
+date: 2026-08-31
 tags: [1개월]
 ---
 

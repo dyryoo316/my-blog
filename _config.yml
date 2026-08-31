@@ -17,4 +17,6 @@ page-col: "#f7fafc"          # 전체 배경색 (예: 연한 회색/아이보리
 navbar-links:
   글 목록: "tags/"
 
-  search: true
+navbar-links:
+  글 목록: "tags/"
+  검색: "search/"

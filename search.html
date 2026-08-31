@@ -1,0 +1,50 @@
+---
+layout: page
+title: 글 검색
+permalink: /search/
+---
+
+<input type="text" id="search-input" placeholder="검색어를 입력하세요...">
+<ul id="search-results"></ul>
+
+<style>
+#search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+#search-results {
+  list-style: none;
+  padding: 0;
+  max-width: 400px;
+}
+#search-results li {
+  padding: 10px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+#search-results a {
+  color: #2d3748;
+  text-decoration: none;
+  font-weight: bold;
+}
+#search-results a:hover {
+  text-decoration: underline;
+}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/simple-jekyll-search/1.10.0/simple-jekyll-search.min.js"></script>
+<script>
+  SimpleJekyllSearch({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('search-results'),
+    json: '{{ "/search.json" | relative_url }}',
+    searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+    noResultsText: '검색 결과가 없어요.',
+    limit: 10,
+    fuzzy: false
+  });
+</script>
