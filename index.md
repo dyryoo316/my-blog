@@ -357,7 +357,7 @@ var postDates = {};
 배운 개념, 헷갈렸던 부분, 직접 겪은 에러 해결 과정을 정리해서 올립니다.
 
 - 배운 것: Git, GitHub, Markdown
-- 지금 하는 것: <span id="bootcamp-day">계산 중...</span>
+- 지금 하는 것:🏕️<span id="bootcamp-day">계산 중...</span>
 
 <div class="progress-wrap">
   <div class="progress-bar" id="bootcamp-progress-bar"></div>
