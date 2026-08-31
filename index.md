@@ -1,12 +1,12 @@
 ---
 layout: home
-title: 학습 BLOG
+title: 다연의 학습 BLOG
 list_title: 지금까지 쓴 글
 ---
 
 <div class="profile-box">
   <img src="{{ '/assets/img/profile.jpg' | relative_url }}" alt="프로필 사진" class="profile-img">
-  <h3 class="profile-name">dyryoo316</h3>
+  <h3 class="profile-name">다연</h3>
   <p class="profile-bio"><span id="profile-bootcamp-day">계산 중...</span> </p>
   <div class="profile-links">
     <a href="https://github.com/dyryoo316" target="_blank">GitHub</a>
