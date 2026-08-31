@@ -1,17 +1,16 @@
 ---
 layout: home
-title: 학습 노트
+title: 학습 BLOG
 list_title: 지금까지 쓴 글
 ---
 
 <div class="profile-box">
   <img src="{{ '/assets/img/profile.jpg' | relative_url }}" alt="프로필 사진" class="profile-img">
-  <h3 class="profile-name">다연</h3>
-  <p class="profile-bio">부트캠프 4일차 · 개발 학습 중</p>
+  <h3 class="profile-name">=Ryoo316</h3>
+  <p class="profile-bio">부트캠프 4일차 </p>
   <div class="profile-links">
     <a href="https://github.com/dyryoo316" target="_blank">GitHub</a>
-    <a href="https://instagram.com/아이디" target="_blank">Instagram</a>
-    <a href="mailto:이메일@example.com">Email</a>
+    <a href="mailto:dyryoo316@gmail.com">Email</a>
   </div>
 </div>
 
