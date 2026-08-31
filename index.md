@@ -4,6 +4,67 @@ title: 학습 노트
 list_title: 지금까지 쓴 글
 ---
 
+<div class="profile-box">
+  <img src="{{ '/assets/img/profile.jpg' | relative_url }}" alt="프로필 사진" class="profile-img">
+  <h3 class="profile-name">다연</h3>
+  <p class="profile-bio">부트캠프 4일차 · 개발 학습 중</p>
+  <div class="profile-links">
+    <a href="https://github.com/dyryoo316" target="_blank">GitHub</a>
+    <a href="https://instagram.com/아이디" target="_blank">Instagram</a>
+    <a href="mailto:이메일@example.com">Email</a>
+  </div>
+</div>
+
+<style>
+.profile-box {
+  position: fixed;
+  top: 100px;
+  left: 20px;
+  width: 180px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 900;
+}
+.profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+.profile-name {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+}
+.profile-bio {
+  font-size: 0.8rem;
+  color: #718096;
+  margin: 0 0 10px;
+}
+.profile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.8rem;
+}
+.profile-links a {
+  color: #2d3748;
+  text-decoration: none;
+}
+.profile-links a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 768px) {
+  .profile-box {
+    display: none;
+  }
+}
+</style>
+
 <div class="corner-post-list">
   <strong>태그별 글 목록</strong>
   <ul class="corner-tag-list">
