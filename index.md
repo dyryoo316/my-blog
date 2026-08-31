@@ -59,16 +59,92 @@ list_title: 지금까지 쓴 글
 - 배운 것: Git, GitHub, Markdown
 - 지금 하는 것: <span id="bootcamp-day">계산 중...</span>
 
+<div class="progress-wrap">
+  <div class="progress-bar" id="bootcamp-progress-bar"></div>
+</div>
+<div class="progress-label" id="bootcamp-progress-label"></div>
+
+<style>
+.progress-wrap {
+  width: 100%;
+  max-width: 400px;
+  height: 14px;
+  background: #e2e8f0;
+  border-radius: 7px;
+  overflow: hidden;
+  margin: 10px 0 4px;
+}
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: #2d3748;
+  transition: width 0.6s ease;
+}
+.progress-label {
+  font-size: 0.85rem;
+  color: #4a5568;
+}
+</style>
+
 <script>
 (function () {
-  var startDate = new Date(2026, 7, 26); // 2026년 8월 26일 (월은 0부터 시작하므로 7 = 8월)
-  var today = new Date();
+  // ── 부트캠프 시작일 / 종료일 ──
+  var startDate = new Date(2026, 7, 26);  // 2026-08-26
+  var endDate   = new Date(2027, 1, 16);  // 2027-02-16
+
+  // ── 공휴일 목록 (필요할 때 이 배열만 수정하면 됨) ──
+  var holidays = [
+    "2026-09-24", "2026-09-25", "2026-09-26", // 추석 연휴
+    "2026-10-03", // 개천절
+    "2026-10-09", // 한글날
+    "2026-12-25", // 성탄절
+    "2027-01-01", // 신정
+    "2027-02-05", "2027-02-06", "2027-02-07" // 설 연휴
+  ];
+
+  function toKey(d) {
+    return d.getFullYear() + "-" +
+      String(d.getMonth() + 1).padStart(2, "0") + "-" +
+      String(d.getDate()).padStart(2, "0");
+  }
+
+  function isWorkday(d) {
+    var day = d.getDay(); // 0=일, 6=토
+    if (day === 0 || day === 6) return false;
+    if (holidays.indexOf(toKey(d)) !== -1) return false;
+    return true;
+  }
+
+  // start ~ end(포함하지 않음) 사이 평일 수 세기
+  function countWorkdays(from, to) {
+    var count = 0;
+    var cur = new Date(from);
+    while (cur < to) {
+      if (isWorkday(cur)) count++;
+      cur.setDate(cur.getDate() + 1);
+    }
+    return count;
+  }
 
   startDate.setHours(0, 0, 0, 0);
+  endDate.setHours(0, 0, 0, 0);
+  var today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  var diffDays = Math.floor((today - startDate) / (1000 * 60 * 60 * 24)) + 1;
+  var totalWorkdays = countWorkdays(startDate, endDate); // 전체 평일 수 (분모)
 
-  document.getElementById('bootcamp-day').textContent = '부트캠프 ' + diffDays + '일차';
+  // 오늘이 포함된 날까지의 경과 평일 수 (분자)
+  var todayForCount = new Date(today);
+  todayForCount.setDate(todayForCount.getDate() + 1); // to는 미포함이라 +1
+  var doneWorkdays = countWorkdays(startDate, todayForCount);
+  if (doneWorkdays > totalWorkdays) doneWorkdays = totalWorkdays;
+  if (doneWorkdays < 0) doneWorkdays = 0;
+
+  document.getElementById('bootcamp-day').textContent = '부트캠프 ' + doneWorkdays + '일차';
+
+  var percent = totalWorkdays > 0 ? Math.round((doneWorkdays / totalWorkdays) * 100) : 0;
+  document.getElementById('bootcamp-progress-bar').style.width = percent + '%';
+  document.getElementById('bootcamp-progress-label').textContent =
+    doneWorkdays + ' / ' + totalWorkdays + '일 (' + percent + '%)';
 })();
 </script>
