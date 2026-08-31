@@ -6,8 +6,8 @@ list_title: 지금까지 쓴 글
 
 <div class="profile-box">
   <img src="{{ '/assets/img/profile.jpg' | relative_url }}" alt="프로필 사진" class="profile-img">
-  <h3 class="profile-name">Ryoo316</h3>
-  <p class="profile-bio">부트캠프 4일차 </p>
+  <h3 class="profile-name">dyryoo316</h3>
+  <p class="profile-bio"><span id="profile-bootcamp-day">계산 중...</span> </p>
   <div class="profile-links">
     <a href="https://github.com/dyryoo316" target="_blank">GitHub</a>
     <a href="mailto:dyryoo316@gmail.com">Email</a>
@@ -440,6 +440,7 @@ var postDates = {};
   if (workdaysDone < 1) workdaysDone = 1;
 
   document.getElementById('bootcamp-day').textContent = '부트캠프 ' + workdaysDone + '일차';
+  document.getElementById('profile-bootcamp-day').textContent = '부트캠프 ' + workdaysDone + '일차';
 
   // ── 2. 퍼센트 바용: 그냥 통째로 센 달력 일수 ──
   var totalDays = Math.round((endDate - startDate) / oneDay) + 1; // 174
