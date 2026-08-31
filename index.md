@@ -1,6 +1,6 @@
 ---
 layout: home
-title: 다연의 학습 BLOG
+title: 📖다연의 학습 BLOG
 list_title: 지금까지 쓴 글
 ---
 
@@ -356,7 +356,7 @@ var postDates = {};
 부트캠프에서 배운 내용을 매일 정리하는 개발 학습 블로그입니다 ✍️<br>
 배운 개념, 헷갈렸던 부분, 직접 겪은 에러 해결 과정을 정리해서 올립니다.
 
-- 배운 것:📖 Git, GitHub, Markdown
+- 배운 것: Git, GitHub, Markdown
 - 지금 하는 것:🏕️<span id="bootcamp-day">계산 중...</span>
 
 <div class="progress-wrap">
