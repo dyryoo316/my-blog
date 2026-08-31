@@ -4,12 +4,21 @@ title: 학습 노트
 list_title: 지금까지 쓴 글
 ---
 
-
 <div class="corner-post-list">
-  <strong>글 목록</strong>
-  <ul>
-    {% for post in site.posts %}
-    <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+  <strong>태그별 글 목록</strong>
+  <ul class="corner-tag-list">
+    {% assign tags = site.tags | sort %}
+    {% for tag in tags %}
+      <li>
+        <details>
+          <summary>{{ tag[0] }} <span class="corner-tag-count">({{ tag[1].size }})</span></summary>
+          <ul class="corner-tag-posts">
+            {% for post in tag[1] %}
+              <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </details>
+      </li>
     {% endfor %}
   </ul>
 </div>
@@ -30,20 +39,38 @@ list_title: 지금까지 쓴 글
   font-size: 0.85rem;
   z-index: 900;
 }
-.corner-post-list ul {
+.corner-tag-list {
   list-style: none;
   padding-left: 0;
   margin: 8px 0 0;
 }
-.corner-post-list li {
-  margin-bottom: 6px;
+.corner-tag-list > li {
+  margin-bottom: 8px;
+}
+.corner-tag-list summary {
+  cursor: pointer;
+  font-weight: bold;
+  outline: none;
+}
+.corner-tag-count {
+  color: #a0aec0;
+  font-weight: normal;
+  font-size: 0.8rem;
+}
+.corner-tag-posts {
+  list-style: none;
+  padding-left: 8px;
+  margin: 6px 0 0;
+}
+.corner-tag-posts li {
+  margin-bottom: 4px;
   line-height: 1.3;
 }
-.corner-post-list a {
+.corner-tag-posts a {
   color: #2d3748;
   text-decoration: none;
 }
-.corner-post-list a:hover {
+.corner-tag-posts a:hover {
   text-decoration: underline;
 }
 @media (max-width: 768px) {
@@ -52,6 +79,7 @@ list_title: 지금까지 쓴 글
   }
 }
 </style>
+
 
 부트캠프에서 배운 내용을 매일 정리하는 개발 학습 블로그입니다 ✍️<br>
 배운 개념, 헷갈렸던 부분, 직접 겪은 에러 해결 과정을 정리해서 올립니다.
