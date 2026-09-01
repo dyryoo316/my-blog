@@ -54,23 +54,26 @@ list_title: 지금까지 쓴 글
   color: #718096;
   margin-top: 2px;
 }
+
 .pet-emoji-anim {
   position: absolute;
   top: -6px;
   left: 50%;
   font-size: 1.6rem;
   pointer-events: none;
-  animation: petStroke 1.1s ease-in-out forwards;
+  animation: petStroke 1.4s ease-in-out forwards;
   z-index: 10;
 }
 @keyframes petStroke {
-  0%   { opacity: 0; transform: translate(-120%, 0px) rotate(-10deg) scale(0.85); }
-  12%  { opacity: 1; transform: translate(-140%, 3px) rotate(-14deg) scale(1); }
-  35%  { transform: translate(-60%, -6px) rotate(-6deg) scale(1.05); }
-  50%  { transform: translate(0%, -8px) rotate(0deg) scale(1.05); }
-  65%  { transform: translate(60%, -6px) rotate(6deg) scale(1.05); }
-  88%  { opacity: 1; transform: translate(140%, 3px) rotate(14deg) scale(1); }
-  100% { opacity: 0; transform: translate(160%, 0px) rotate(10deg) scale(0.85); }
+  0%   { opacity: 0; transform: translate(-90%, 0px) rotate(-10deg) scale(0.85); }
+  8%   { opacity: 1; transform: translate(-90%, 2px) rotate(-10deg) scale(1); }
+  25%  { transform: translate(90%, -6px) rotate(10deg) scale(1.05); }
+  33%  { transform: translate(90%, -6px) rotate(10deg) scale(1.05); }
+  50%  { transform: translate(-90%, 2px) rotate(-10deg) scale(1.05); }
+  58%  { transform: translate(-90%, 2px) rotate(-10deg) scale(1.05); }
+  75%  { transform: translate(90%, -6px) rotate(10deg) scale(1); }
+  92%  { opacity: 1; transform: translate(90%, -6px) rotate(10deg) scale(1); }
+  100% { opacity: 0; transform: translate(90%, -6px) rotate(8deg) scale(0.85); }
 }
 
 .profile-box {
