@@ -43,7 +43,8 @@ list_title: 지금까지 쓴 글
   border: none;
   font-size: 1.4rem;
   cursor: pointer;
-  margin-top: 6px;
+  display: block;
+  margin: 8px auto;
 }
 .pet-btn:hover {
   transform: scale(1.1);
@@ -55,20 +56,20 @@ list_title: 지금까지 쓴 글
 }
 .pet-emoji-anim {
   position: absolute;
-  top: 45%;
-  left: 5%;
-  font-size: 1.8rem;
+  top: -6px;
+  left: 50%;
+  font-size: 1.6rem;
   pointer-events: none;
-  animation: petSweep 0.9s ease-in-out forwards;
+  animation: petStroke 0.8s ease-in-out forwards;
   z-index: 10;
 }
-@keyframes petSweep {
-  0%   { opacity: 0; transform: translate(-10px, -8px) rotate(-15deg) scale(0.8); }
-  15%  { opacity: 1; transform: translate(0px, 0px) rotate(-10deg) scale(1); }
-  35%  { transform: translate(22px, 6px) rotate(5deg) scale(1.05); }
-  55%  { transform: translate(44px, -6px) rotate(-5deg) scale(1); }
-  75%  { transform: translate(58px, 6px) rotate(10deg) scale(0.95); }
-  100% { opacity: 0; transform: translate(70px, 0px) rotate(15deg) scale(0.8); }
+@keyframes petStroke {
+  0%   { opacity: 0; transform: translate(-45%, 0px) rotate(-8deg) scale(0.85); }
+  15%  { opacity: 1; transform: translate(-70%, 2px) rotate(-10deg) scale(1); }
+  40%  { transform: translate(-30%, -4px) rotate(-4deg) scale(1.02); }
+  60%  { transform: translate(-10%, -6px) rotate(4deg) scale(1.02); }
+  85%  { transform: translate(20%, -2px) rotate(10deg) scale(1); }
+  100% { opacity: 0; transform: translate(35%, 0px) rotate(12deg) scale(0.85); }
 }
 
 .profile-box {
