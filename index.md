@@ -60,16 +60,17 @@ list_title: 지금까지 쓴 글
   left: 50%;
   font-size: 1.6rem;
   pointer-events: none;
-  animation: petStroke 0.8s ease-in-out forwards;
+  animation: petStroke 1.1s ease-in-out forwards;
   z-index: 10;
 }
 @keyframes petStroke {
-  0%   { opacity: 0; transform: translate(-45%, 0px) rotate(-8deg) scale(0.85); }
-  15%  { opacity: 1; transform: translate(-70%, 2px) rotate(-10deg) scale(1); }
-  40%  { transform: translate(-30%, -4px) rotate(-4deg) scale(1.02); }
-  60%  { transform: translate(-10%, -6px) rotate(4deg) scale(1.02); }
-  85%  { transform: translate(20%, -2px) rotate(10deg) scale(1); }
-  100% { opacity: 0; transform: translate(35%, 0px) rotate(12deg) scale(0.85); }
+  0%   { opacity: 0; transform: translate(-120%, 0px) rotate(-10deg) scale(0.85); }
+  12%  { opacity: 1; transform: translate(-140%, 3px) rotate(-14deg) scale(1); }
+  35%  { transform: translate(-60%, -6px) rotate(-6deg) scale(1.05); }
+  50%  { transform: translate(0%, -8px) rotate(0deg) scale(1.05); }
+  65%  { transform: translate(60%, -6px) rotate(6deg) scale(1.05); }
+  88%  { opacity: 1; transform: translate(140%, 3px) rotate(14deg) scale(1); }
+  100% { opacity: 0; transform: translate(160%, 0px) rotate(10deg) scale(0.85); }
 }
 
 .profile-box {
@@ -117,7 +118,7 @@ list_title: 지금까지 쓴 글
 
 .calendar-box {
   position: fixed;
-  top: 340px;
+  top: 420px;
   left: 20px;
   width: 180px;
   background: #ffffff;
