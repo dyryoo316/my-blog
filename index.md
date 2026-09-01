@@ -4,15 +4,30 @@ title: 📖다연의 학습 BLOG
 list_title: 지금까지 쓴 글
 ---
 
-<div class="profile-box">
-  <img src="{{ '/assets/img/profile.jpg' | relative_url }}" alt="프로필 사진" class="profile-img">
-  <h3 class="profile-name">다연</h3>
-  <p class="profile-bio"><span id="profile-bootcamp-day">계산 중...</span> </p>
-  <div class="profile-links">
-    <a href="https://github.com/dyryoo316" target="_blank">GitHub</a>
-    <a href="mailto:dyryoo316@gmail.com">Email</a>
+<div class="left-dock" id="left-dock">
+
+  <div class="profile-box">
+    <img src="{{ '/assets/img/profile.jpg' | relative_url }}" alt="프로필 사진" class="profile-img">
+    <h3 class="profile-name">다연</h3>
+    <p class="profile-bio"><span id="profile-bootcamp-day">계산 중...</span> </p>
+    <div class="profile-links">
+      <a href="https://github.com/dyryoo316" target="_blank">GitHub</a>
+      <a href="mailto:dyryoo316@gmail.com">Email</a>
+    </div>
   </div>
+
+  <div class="calendar-box">
+    <div class="calendar-header">
+      <button id="cal-prev">‹</button>
+      <span id="cal-title"></span>
+      <button id="cal-next">›</button>
+    </div>
+    <div class="calendar-grid" id="cal-grid"></div>
+  </div>
+
 </div>
+
+<button id="mobile-dock-toggle" aria-label="프로필 열기">👤</button>
 
 <style>
 .profile-box {
@@ -57,23 +72,7 @@ list_title: 지금까지 쓴 글
 .profile-links a:hover {
   text-decoration: underline;
 }
-@media (max-width: 768px) {
-  .profile-box {
-    display: none;
-  }
-}
-</style>
 
-<div class="calendar-box">
-  <div class="calendar-header">
-    <button id="cal-prev">‹</button>
-    <span id="cal-title"></span>
-    <button id="cal-next">›</button>
-  </div>
-  <div class="calendar-grid" id="cal-grid"></div>
-</div>
-
-<style>
 .calendar-box {
   position: fixed;
   top: 340px;
@@ -152,12 +151,63 @@ list_title: 지금까지 쓴 글
 .cal-popup a:hover {
   text-decoration: underline;
 }
+
+#mobile-dock-toggle {
+  display: none;
+}
+
 @media (max-width: 768px) {
-  .calendar-box {
-    display: none;
+  .left-dock {
+    position: fixed;
+    bottom: 76px;
+    left: 16px;
+    right: 16px;
+    max-height: 0;
+    overflow: hidden;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    z-index: 950;
+    padding: 0 16px;
+  }
+  .left-dock.open {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 16px;
+  }
+  .profile-box, .calendar-box {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    margin-bottom: 16px;
+  }
+  #mobile-dock-toggle {
+    display: block;
+    position: fixed;
+    bottom: 16px;
+    left: 16px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #2d3748;
+    color: #fff;
+    border: none;
+    font-size: 1.3rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    z-index: 960;
+    cursor: pointer;
   }
 }
 </style>
+
+<script>
+document.getElementById('mobile-dock-toggle').addEventListener('click', function () {
+  document.getElementById('left-dock').classList.toggle('open');
+});
+</script>
 
 <script>
 var postDates = {};
