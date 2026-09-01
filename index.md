@@ -7,7 +7,11 @@ list_title: 지금까지 쓴 글
 <div class="left-dock" id="left-dock">
 
   <div class="profile-box">
-    <img src="{{ '/assets/img/profile.jpg' | relative_url }}" alt="프로필 사진" class="profile-img">
+    <div class="profile-img-wrap" id="pet-img-wrap">
+  <img src="{{ '/assets/img/profile.jpg' | relative_url }}" alt="프로필 사진" class="profile-img">
+</div>
+<button id="pet-btn" class="pet-btn" aria-label="쓰다듬기">🫳</button>
+<div class="pet-count">쓰담 <span id="pet-count">0</span>회</div>
     <h3 class="profile-name">다연</h3>
     <p class="profile-bio"><span id="profile-bootcamp-day">계산 중...</span> </p>
     <div class="profile-links">
@@ -30,6 +34,43 @@ list_title: 지금까지 쓴 글
 <button id="mobile-dock-toggle" aria-label="프로필 열기">👤</button>
 
 <style>
+.profile-img-wrap {
+  position: relative;
+  display: inline-block;
+}
+.pet-btn {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  margin-top: 6px;
+}
+.pet-btn:hover {
+  transform: scale(1.1);
+}
+.pet-count {
+  font-size: 0.75rem;
+  color: #718096;
+  margin-top: 2px;
+}
+.pet-emoji-anim {
+  position: absolute;
+  top: 45%;
+  left: 5%;
+  font-size: 1.8rem;
+  pointer-events: none;
+  animation: petSweep 0.9s ease-in-out forwards;
+  z-index: 10;
+}
+@keyframes petSweep {
+  0%   { opacity: 0; transform: translate(-10px, -8px) rotate(-15deg) scale(0.8); }
+  15%  { opacity: 1; transform: translate(0px, 0px) rotate(-10deg) scale(1); }
+  35%  { transform: translate(22px, 6px) rotate(5deg) scale(1.05); }
+  55%  { transform: translate(44px, -6px) rotate(-5deg) scale(1); }
+  75%  { transform: translate(58px, 6px) rotate(10deg) scale(0.95); }
+  100% { opacity: 0; transform: translate(70px, 0px) rotate(15deg) scale(0.8); }
+}
+
 .profile-box {
   position: fixed;
   top: 100px;
@@ -202,6 +243,51 @@ list_title: 지금까지 쓴 글
   }
 }
 </style>
+
+<script>
+(function () {
+  var wrap = document.getElementById('pet-img-wrap');
+  var btn = document.getElementById('pet-btn');
+  var countEl = document.getElementById('pet-count');
+  var STORAGE_KEY = 'petCount';
+
+  var queued = 0;
+  var playing = false;
+
+  var count = parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10);
+  countEl.textContent = count;
+
+  function playOne() {
+    playing = true;
+
+    var emoji = document.createElement('span');
+    emoji.className = 'pet-emoji-anim';
+    emoji.textContent = '🫳';
+    wrap.appendChild(emoji);
+
+    count++;
+    countEl.textContent = count;
+    localStorage.setItem(STORAGE_KEY, count);
+
+    emoji.addEventListener('animationend', function () {
+      emoji.remove();
+      playing = false;
+      if (queued > 0) {
+        queued--;
+        playOne();
+      }
+    });
+  }
+
+  btn.addEventListener('click', function () {
+    if (playing) {
+      queued++;
+    } else {
+      playOne();
+    }
+  });
+})();
+</script>
 
 <script>
 document.getElementById('mobile-dock-toggle').addEventListener('click', function () {
