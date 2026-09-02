@@ -249,30 +249,49 @@ list_title: 지금까지 쓴 글
 }
 </style>
 
-<script>
-(function () {
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+  import {
+    getFirestore,
+    doc,
+    getDoc,
+    runTransaction
+  } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyC9S97RXpakLREpLueUzrnuH9RmecPSs7o",
+    authDomain: "my-blog-pet.firebaseapp.com",
+    projectId: "my-blog-pet",
+    storageBucket: "my-blog-pet.firebasestorage.app",
+    messagingSenderId: "561684241826",
+    appId: "1:561684241826:web:940ec05fb86009cc28e6fb"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const counterRef = doc(db, "counters", "petCount");
+
   var wrap = document.getElementById('pet-img-wrap');
   var btn = document.getElementById('pet-btn');
   var countEl = document.getElementById('pet-count');
-  var STORAGE_KEY = 'petCount';
 
   var queued = 0;
   var playing = false;
 
-  var count = parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10);
-  countEl.textContent = count;
+  // 처음 페이지 열릴 때 현재 총 누적 횟수 불러와서 표시
+  getDoc(counterRef).then(function (snap) {
+    if (snap.exists()) {
+      countEl.textContent = snap.data().count;
+    }
+  }).catch(function (err) {
+    console.error('쓰담 카운트 불러오기 실패:', err);
+  });
 
-  function playOne() {
-    playing = true;
-
+  function playAnimation() {
     var emoji = document.createElement('span');
     emoji.className = 'pet-emoji-anim';
     emoji.textContent = '🫳';
     wrap.appendChild(emoji);
-
-    count++;
-    countEl.textContent = count;
-    localStorage.setItem(STORAGE_KEY, count);
 
     emoji.addEventListener('animationend', function () {
       emoji.remove();
@@ -284,6 +303,25 @@ list_title: 지금까지 쓴 글
     });
   }
 
+  function playOne() {
+    playing = true;
+    playAnimation();
+
+    // Firestore에 1 증가시켜 저장 (트랜잭션으로 안전하게 처리)
+    runTransaction(db, function (transaction) {
+      return transaction.get(counterRef).then(function (snap) {
+        var current = snap.exists() ? snap.data().count : 0;
+        var next = current + 1;
+        transaction.update(counterRef, { count: next });
+        return next;
+      });
+    }).then(function (newCount) {
+      countEl.textContent = newCount;
+    }).catch(function (err) {
+      console.error('쓰담 카운트 업데이트 실패:', err);
+    });
+  }
+
   btn.addEventListener('click', function () {
     if (playing) {
       queued++;
@@ -291,7 +329,6 @@ list_title: 지금까지 쓴 글
       playOne();
     }
   });
-})();
 </script>
 
 <script>
