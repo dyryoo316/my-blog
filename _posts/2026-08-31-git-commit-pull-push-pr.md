@@ -2,7 +2,7 @@
 layout: post
 title: "COMMIT, PUSH, PULL, PR의 역할 정리하기"
 date: 2026-08-31
-tags: [1개월]
+tags: [Module01]
 ---
 
 ## 들어가며 (Situation)

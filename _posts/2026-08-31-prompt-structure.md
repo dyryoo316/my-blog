@@ -2,7 +2,7 @@
 layout: post
 title: "질문을 대충 던져서 원치 않는 답을 받던 문제를 프롬프트 구조화로 해결하기"
 date: 2026-08-31 
-tags: [1개월]
+tags: [Module01]
 mermaid: true
 ---
 
