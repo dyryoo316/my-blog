@@ -20,3 +20,7 @@ navbar-links:
 navbar-links:
   글 목록: "tags/"
   검색: "search/"
+
+# Mermaid 다이어그램 렌더링 (```mermaid 코드 블록 -> 다이어그램)
+site-js:
+  - "/assets/js/mermaid-init.js"
