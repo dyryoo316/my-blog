@@ -3,7 +3,7 @@ layout: post
 title: "메소드를 나눴더니 호출이 안 된다? 캠퍼스 계산기로 배운 new와 값의 전달"
 date: 2026-09-30 21:00:00 +0900
 categories: [Java]
-tags: [Module02]
+tags: [Java]
 mermaid: true
 ---
 

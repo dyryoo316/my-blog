@@ -3,7 +3,7 @@ layout: post
 title: "부모 테이블은 왜 DROP이 안 될까: 제약 조건·인덱스·트랜잭션 수업 노트"
 date: 2026-10-13 12:00:00 +0900
 categories: [Database]
-tags: [mysql, sql, constraint, index, transaction]
+tags: [MySQL]
 mermaid: true
 ---
 

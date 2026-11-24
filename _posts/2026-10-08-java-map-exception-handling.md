@@ -3,7 +3,7 @@ layout: post
 title: "키로 값을 찾고, 예외로 프로그램을 지키기: Map과 예외 처리 수업 코드 정리"
 date: 2026-10-08 20:00:00 +0900
 categories: [Java]
-tags: [Module02, map, exception, fileio]
+tags: [Java]
 mermaid: true
 ---
 

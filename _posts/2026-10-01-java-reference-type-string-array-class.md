@@ -3,7 +3,7 @@ layout: post
 title: "str1 == str2 가 false? 참조 자료형이 값이 아니라 주소를 담는다는 걸 직접 확인하기"
 date: 2026-10-01 21:00:00 +0900
 categories: [Java]
-tags: [Module02]
+tags: [Java]
 mermaid: true
 ---
 

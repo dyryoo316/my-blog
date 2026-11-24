@@ -3,7 +3,7 @@ layout: post
 title: "hp에 -200이 들어가도 막을 수 없다면? 캡슐화와 추상화로 책임을 나누며 콘솔 게임 설계하기"
 date: 2026-10-02 21:00:00 +0900
 categories: [Java]
-tags: [Module02]
+tags: [Java]
 mermaid: true
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: "배열의 크기 제한을 컬렉션으로 풀고, 제네릭으로 타입 안전성까지 챙기기: DTO, List, Set 수업 코드 정리"
 date: 2026-10-07 09:00:00 +0900
 categories: [Java]
-tags: [Module02, generic, collection]
+tags: [Java]
 mermaid: true
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: "서버를 껐다 켜도 데이터가 남으려면? SELECT부터 JOIN까지 MySQL 첫걸음"
 date: 2026-10-12 10:00:00 +0900
 categories: [Database]
-tags: [mysql, sql, select, groupby, join]
+tags: [MySQL]
 mermaid: true
 ---
 

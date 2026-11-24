@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "CSS 선택자 우선순위 & Flexbox/Grid 배치 정리"
-tags: [Module01]
+tags: [CSS]
 date: 2026-09-04
 ---
 

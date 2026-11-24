@@ -185,7 +185,7 @@ layout: post
 title: "브라우저 캐싱 문제를 React Query로 해결하기"
 date: 2026-08-30 14:00:00 +0900
 categories: [Frontend]
-tags: [react, react-query, caching]
+tags: [React]
 ---
 ```
 
@@ -195,7 +195,7 @@ tags: [react, react-query, caching]
 | `title` | 필수 | 글 제목. 콜론(`:`) 등 특수문자 포함 시 반드시 따옴표로 감싼다 |
 | `date` | 필수 | 파일명 날짜와 일치, 한국 시간대 `+0900` 명시 |
 | `categories` | 권장 | 1~2개, 대분류 중심 |
-| `tags` | 권장 | 3~5개, 소문자 |
+| `tags` | 필수 | 언어/기술 태그 1개 (`C:\Lecture` 폴더 기준: Git, HTML, CSS, Java, MySQL, JDBC, Servlet, Spring, JPA, JavaScript, React 등. 학습 주제 외 글은 Markdown, AI) |
 
 주의사항:
 - `date`가 **미래 시각**이면 기본 설정에서 글이 보이지 않는다.
@@ -250,7 +250,7 @@ layout: post
 title: "[문제 중심의 제목 — 'OO 기술 사용기'가 아닌 'OO 문제를 OO로 해결하기']"
 date: YYYY-MM-DD HH:MM:SS +0900
 categories: [카테고리]
-tags: [태그1, 태그2, 태그3]
+tags: [언어태그]
 mermaid: true
 ---
 

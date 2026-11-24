@@ -3,7 +3,7 @@ layout: post
 title: "static 값은 왜 모든 객체가 공유할까? 싱글톤, 상속, 동적 바인딩을 수업 코드로 확인하기"
 date: 2026-10-06 09:00:00 +0900
 categories: [Java]
-tags: [Module02]
+tags: [Java]
 mermaid: true
 ---
 

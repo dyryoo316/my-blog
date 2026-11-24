@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "어제 배운 Git 정리"
-tags: [Module01]
+tags: [Git]
 date: 2026-08-28
 ---
 
