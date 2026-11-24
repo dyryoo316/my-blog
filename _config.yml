@@ -16,9 +16,7 @@ page-col: "#f7fafc"          # 전체 배경색 (예: 연한 회색/아이보리
 
 navbar-links:
   글 목록: "tags/"
-
-navbar-links:
-  글 목록: "tags/"
+  프로젝트: "projects/"
   검색: "search/"
 
 # Mermaid 다이어그램 렌더링 (```mermaid 코드 블록 -> 다이어그램)

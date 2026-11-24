@@ -194,7 +194,7 @@ tags: [React]
 | `layout` | 필수 | 테마에서 제공하는 레이아웃 이름 (보통 `post`) |
 | `title` | 필수 | 글 제목. 콜론(`:`) 등 특수문자 포함 시 반드시 따옴표로 감싼다 |
 | `date` | 필수 | 파일명 날짜와 일치, 한국 시간대 `+0900` 명시 |
-| `categories` | 권장 | 1~2개, 대분류 중심 |
+| `categories` | 권장 | 1~2개, 대분류 중심. 모듈 진행 과정·회고 글은 `[Project]` (상단 메뉴 "프로젝트" 페이지에 모임) |
 | `tags` | 필수 | 언어/기술 태그 1개 (`C:\Lecture` 폴더 기준: Git, HTML, CSS, Java, MySQL, JDBC, Servlet, Spring, JPA, SpringSecurity, JavaScript, React 등. 학습 주제 외 글은 Markdown, AI) |
 
 주의사항:
