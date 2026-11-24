@@ -195,7 +195,7 @@ tags: [React]
 | `title` | 필수 | 글 제목. 콜론(`:`) 등 특수문자 포함 시 반드시 따옴표로 감싼다 |
 | `date` | 필수 | 파일명 날짜와 일치, 한국 시간대 `+0900` 명시 |
 | `categories` | 권장 | 1~2개, 대분류 중심 |
-| `tags` | 필수 | 언어/기술 태그 1개 (`C:\Lecture` 폴더 기준: Git, HTML, CSS, Java, MySQL, JDBC, Servlet, Spring, JPA, JavaScript, React 등. 학습 주제 외 글은 Markdown, AI) |
+| `tags` | 필수 | 언어/기술 태그 1개 (`C:\Lecture` 폴더 기준: Git, HTML, CSS, Java, MySQL, JDBC, Servlet, Spring, JPA, SpringSecurity, JavaScript, React 등. 학습 주제 외 글은 Markdown, AI) |
 
 주의사항:
 - `date`가 **미래 시각**이면 기본 설정에서 글이 보이지 않는다.
