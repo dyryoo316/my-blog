@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "값을 바꿨는데 화면이 그대로인 문제로 props·state·이벤트와 프론트·백엔드 역할 분리 정리하기"
-date: 2026-11-25 18:00:00 +0900
+date: 2026-11-25 11:00:00 +0900
 categories: [JavaScript]
 tags: [React]
 mermaid: true
