@@ -18,7 +18,7 @@ mermaid: true
 
 오후 첫 필기는 "JS는 웹 브라우저에서 동작하는 유일한 프로그래밍 언어이다"였다. 어제까지는 Code Runner(Node.js)로 문법만 연습했고, 오늘 오후부터 처음으로 **브라우저에서** JS가 HTML을 건드렸다.
 
-코드는 모두 수업 코드(`C:\Lecture\11_JavaScript`)다. `.js` 파일은 Node.js v24로, `.html` 파일 중 `01_get-element`, `02_event-object`는 Edge 브라우저(헤드리스)로 직접 실행해서 결과를 확인했다. 수업 코드가 아닌 것은 **"예시 코드"**라고 표시했다. 앞 내용은 [11/17 배열과 고차함수 글]({{ site.baseurl }}{% post_url 2026-11-17-js-array-higher-order-method %})에 있다.
+코드는 모두 수업 코드(`C:\Lecture\11_JavaScript`)다. `.js` 파일은 Node.js v24로, `.html` 파일 중 `01_get-element`, `02_event-object`는 Edge 브라우저(헤드리스)로 직접 실행해서 결과를 확인했다. 수업 코드가 아닌 것은 **"예시 코드"**라고 표시했다. 앞 내용은 [11/17 수업 글]({{ site.baseurl }}{% post_url 2026-11-17-js-ssr-csr-variable-function-array %})에 있다.
 
 ## 문제 상황 (Task)
 
